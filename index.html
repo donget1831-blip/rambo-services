@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rambo | Professional Driver & Electrician - Kericho</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --navy: #0F172A;
+  --gold: #F59E0B;
+  --white: #FFFFFF;
+  --gray: #CBD5E1;
+  --glass: rgba(15,23,42,0.75);
+  --radius: 20px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+body { background: var(--navy); color: var(--white); }
+
+/* NAVBAR FLOATING */
+nav { position: fixed; top: 20px; left: 5%; width: 90%; background: var(--glass); backdrop-filter: blur(15px); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-radius: var(--radius); border: 1px solid rgba(245,158,11,0.2); }
+.logo { font-size: 1.8rem; font-weight: 800; color: var(--gold); }
+.logo span { color: var(--white); }
+nav ul { display: flex; list-style: none; gap: 25px; }
+nav ul li a { color: var(--white); font-weight: 500; text-decoration: none; transition: 0.3s; }
+nav ul li a:hover { color: var(--gold); }
+.hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
+
+/* HERO WITH PARALLAX BACKGROUND */
+.hero { 
+  min-height: 100vh; 
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  background: url('https://images.unsplash.com/photo-1621905252507-b35492cc74ce?q=80&w=2069') center/cover fixed;
+  position: relative; padding: 0 5%;
+}
+.hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.6); }
+.hero-content { position: relative; z-index: 2; max-width: 700px; }
+.hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+.hero h1 span { color: var(--gold); }
+.hero p { color: var(--gray); margin-bottom: 35px; font-size: 1.2rem; }
+
+/* FLOATING GLASS BUTTONS */
+.btn { padding: 16px 32px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 2px solid var(--gold); cursor: pointer; transition: 0.3s; text-decoration: none; min-width: 180px; font-size: 1rem; backdrop-filter: blur(10px); }
+.btn-primary { background: var(--gold); color: var(--navy); }
+.btn-outline { background: transparent; color: var(--white); }
+.btn-whatsapp { background: #25D366; border-color: #25D366; color: var(--white); }
+.btn:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(245,158,11,0.3); }
+.hero-btns { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+/* SECTIONS WITH FLOATING CARDS */
+section { padding: 120px 5%; position: relative; }
+.section-title { text-align: center; font-size: 2.8rem; margin-bottom: 60px; font-weight: 800; }
+.section-title span { color: var(--gold); }
+
+/* FLOATING GLASS CARDS */
+.services-grid, .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { 
+  background: var(--glass); 
+  padding: 40px 30px; 
+  border-radius: var(--radius); 
+  border: 1px solid rgba(245,158,11,0.2); 
+  backdrop-filter: blur(15px); 
+  transition: 0.4s; 
+  text-align: center;
+}
+.card:hover { transform: translateY(-15px); border: 1px solid var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+.card i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
+.card .btn { width: 100%; margin-top: 20px; }
+
+/* ABOUT SECTION */
+.about { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+.about-img { flex: 1; min-width: 320px; }
+.about-img img { width: 100%; border-radius: var(--radius); border: 3px solid var(--gold); }
+.about-text { flex: 1; min-width: 320px; background: var(--glass); padding: 40px; border-radius: var(--radius); backdrop-filter: blur(15px); }
+.skills { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+.badge { background: rgba(245,158,11,0.2); padding: 10px 20px; border-radius: 50px; border: 1px solid var(--gold); color: var(--gold); }
+
+/* FORM FLOATING */
+form { max-width: 750px; margin: auto; background: var(--glass); padding: 50px; border-radius: var(--radius); backdrop-filter: blur(15px); border: 1px solid rgba(245,158,11,0.2); }
+input, select, textarea { width: 100%; padding: 16px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: var(--white); font-size: 1rem; margin-bottom: 20px; }
+
+/* CONTACT FLOATING */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+.contact-item { display: flex; gap: 18px; align-items: center; background: var(--glass); padding: 25px; border-radius: var(--radius); backdrop-filter: blur(15px); border: 1px solid rgba(245,158,11,0.2); }
+.contact-item i { font-size: 1.8rem; color: var(--gold); }
+
+footer { background: #020617; padding: 40px 5%; text-align: center; }
+footer a { color: var(--gold); text-decoration: none; }
+
+/* MOBILE */
+@media(max-width: 768px) {
+  nav { top: 10px; padding: 12px 20px; }
+  nav ul { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--glass); flex-direction: column; padding: 20px; border-radius: var(--radius); }
+  nav ul.show { display: flex; }
+  .hamburger { display: block; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-btns { flex-direction: column; width: 100%; }
+  .btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">RAMBO<span>SERVICES</span></div>
+  <ul id="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#booking">Booking</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger"><i class="fas fa-bars"></i></div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Power. Safety. <span>Reliability.</span></h1>
+    <p>Professional Driving & Certified Electrical Services in Kericho, Chilchilla Ward. Available 24/7 for you.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Service</a>
+      <a href="https://wa.me/254728700944" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About <span>Rambo</span></h2>
+  <div class="about">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070" alt="Electrician">
+    </div>
+    <div class="about-text">
+      <h2>8+ Years of Trusted Service</h2>
+      <p>Based in Chilchilla Ward, Kericho. I provide professional driving and certified electrical solutions with safety as my top priority.</p>
+      <p>Licensed, insured, and trusted by 500+ clients across Kericho.</p>
+      <div class="skills">
+        <span class="badge">House Wiring</span><span class="badge">CCTV</span>
+        <span class="badge">Solar</span><span class="badge">24/7 Repairs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2 class="section-title">Our <span>Services</span></h2>
+  <div class="services-grid">
+    <div class="card"><i class="fas fa-bolt"></i><h3>House Wiring</h3><p>Complete safe wiring for homes and offices. Certified & neat work.</p><a href="https://wa.me/254728700944" class="btn btn-whatsapp">Book Now</a></div>
+    <div class="card"><i class="fas fa-tools"></i><h3>Electrical Repairs</h3><p>24/7 emergency repairs. Fast response in Kericho.</p><a href="https://wa.me/254728700944" class="btn btn-whatsapp">Book Now</a></div>
+    <div class="card"><i class="fas fa-car-side"></i><h3>Airport Transfers</h3><p>Safe and punctual transfers to Eldoret, Kisumu & Nairobi.</p><a href="https://wa.me/254728700944" class="btn btn-whatsapp">Book Now</a></div>
+    <div class="card"><i class="fas fa-solar-panel"></i><h3>Solar Installation</h3><p>Reduce power bills with professional solar solutions.</p><a href="https://wa.me/254728700944" class="btn btn-whatsapp">Book Now</a></div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <h2 class="section-title">Book a <span>Service</span></h2>
+  <form id="bookingForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <select id="service" required>
+      <option value="">Select Service</option>
+      <option>House Wiring</option><option>Electrical Repairs</option>
+      <option>Airport Transfer</option><option>Solar Installation</option>
+    </select>
+    <input type="text" id="location" placeholder="Location in Kericho" required>
+    <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fab fa-whatsapp"></i> Send to WhatsApp</button>
+  </form>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Get In <span>Touch</span></h2>
+  <div class="contact-grid">
+    <div class="contact-item"><i class="fas fa-phone"></i><div><h4>Call</h4><a href="tel:+254728700944">0728 700 944</a></div></div>
+    <div class="contact-item"><i class="fab fa-whatsapp"></i><div><h4>WhatsApp</h4><a href="https://wa.me/254728700944">Chat Now</a></div></div>
+    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h4>Location</h4><p>Kericho, Chilchilla Ward</p></div></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Rambo Services | <a href="tel:+254728700944">0728 700 944</a></p>
+</footer>
+
+<script>
+document.querySelector('.hamburger').onclick = () => document.getElementById('menu').classList.toggle('show');
+document.getElementById('bookingForm').addEventListener('submit', e => {
+  e.preventDefault();
+  let name = document.getElementById('name').value;
+  let phone = document.getElementById('phone').value;
+  let service = document.getElementById('service').value;
+  let location = document.getElementById('location').value;
+  let message = `New Booking:%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ALocation: ${location}`;
+  window.open(`https://wa.me/254728700944?text=${message}`, '_blank');
+});
+</script>
+</body>
+</html>
